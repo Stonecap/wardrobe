@@ -5,6 +5,7 @@ import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -16,6 +17,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.wardrobe.databinding.ActivityMainBinding
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -48,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             setOf(R.id.homeFragment,R.id.wardrobeFragment,R.id.communityFragment, R.id.codiFragment, R.id.LogoutFragment),
             binding.mainDrawerLayout
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
 
 //
@@ -140,6 +143,7 @@ class MainActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         updateUI(currentUser)
 }
+
     private fun updateUI(user: FirebaseUser?) {
     }
 }

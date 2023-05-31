@@ -34,6 +34,7 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.example.wardrobe.DTO.TopBottomDTO
 import com.example.wardrobe.databinding.FragmentAddclothesBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -62,7 +63,8 @@ class AddclothesFragment : Fragment() {
     private lateinit var storage: FirebaseStorage
 
     // 회원가입 구현 시 이부분 firebase auth에서 받아올 것
-    val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid.toString()
 
     var clothesInfo = TopBottomDTO()
     var isTop : Boolean = true

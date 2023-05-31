@@ -15,6 +15,7 @@ import com.example.wardrobe.adapters.CodiAllRecyclerViewAdapter
 import com.example.wardrobe.databinding.FragmentCodisearchBinding
 import com.example.wardrobe.viewmodel.CodiItem
 import com.example.wardrobe.viewmodel.CodiViewModel
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -24,8 +25,8 @@ class CodiSearchFragment : Fragment(){
     private lateinit var adapter_codi: CodiAllRecyclerViewAdapter
     protected lateinit var navController: NavController
 
-    val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
-
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid.toString()
     val db = Firebase.firestore
     val setColRef = db.collection("set")
 

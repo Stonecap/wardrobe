@@ -16,6 +16,7 @@ import com.example.wardrobe.adapters.CommunityMainRecyclerViewAdapter
 import com.example.wardrobe.databinding.FragmentCommunityBinding
 import com.example.wardrobe.viewmodel.CommunityItem
 import com.example.wardrobe.viewmodel.CommunityViewModel
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -26,7 +27,8 @@ class CommunityFragment : Fragment() {
 
 
     // 회원가입 구현 시 이부분 firebase auth에서 받아올 것
-    val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid.toString()
 
     val db = Firebase.firestore
     // Set(코디) Collection Ref

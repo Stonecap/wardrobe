@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.wardrobe.DTO.SetDTO
 import com.example.wardrobe.databinding.FragmentAddCodiBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -21,7 +22,8 @@ class AddCodiFragment : Fragment() {
     private lateinit var storage: FirebaseStorage
 
     // 회원가입 구현 시 이부분 firebase auth에서 받아올 것
-    val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid.toString()
 
     var clothesInfo = SetDTO()
 

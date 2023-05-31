@@ -20,6 +20,7 @@ import com.example.wardrobe.databinding.FragmentSearchBinding
 import com.example.wardrobe.viewmodel.CommunityItem
 import com.example.wardrobe.viewmodel.Item
 import com.example.wardrobe.viewmodel.WardrobeViewModel
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -30,8 +31,8 @@ class SearchFragment: Fragment(){
 
 //    val inputtext = binding.editSearch.text.toString()
 
-    val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
-
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid.toString()
     val db = Firebase.firestore
     // Top(상의) Collection Ref
     val topColRef = db.collection("top")

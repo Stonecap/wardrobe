@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.wardrobe.databinding.FragmentDoCodiBinding
 import com.example.wardrobe.viewmodel.WardrobeViewModel
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
@@ -35,7 +36,8 @@ class DoCodiFragment : Fragment() {
     private lateinit var scaleGestureDetector2: ScaleGestureDetector
 
     // 회원가입 구현 시 이부분 firebase auth에서 받아올 것
-    val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid.toString()
 
     var topRef = ""
     var bottomRef = ""
