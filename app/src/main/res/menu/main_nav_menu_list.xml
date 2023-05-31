@@ -18,5 +18,8 @@
         android:id="@+id/communityFragment"
         android:title="커뮤니티"
         app:showAsAction="always"/>
-
+    <item
+        android:id="@+id/LogoutFragment"
+        android:title="로그아웃"
+        app:showAsAction="always"/>
 </menu>

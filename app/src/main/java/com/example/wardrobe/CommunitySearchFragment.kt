@@ -27,9 +27,6 @@ class CommunitySearchFragment:Fragment(){
     private val viewModel by viewModels<CommunityViewModel> ()
     protected lateinit var navController: NavController
 
-    val adapter_community_main = CommunityMainRecyclerViewAdapter(viewModel,context,this)
-    val adapter_community_liked = CommunityLikedRecyclerViewAdapter(viewModel,context,this)
-
     val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
 
     val db = Firebase.firestore
@@ -42,13 +39,16 @@ class CommunitySearchFragment:Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCommunitysearchBinding.inflate(inflater,container,false)
-
         initView()
         return binding.root
     }
     private fun initView(){
         val text = requireArguments().getString("searchcommunity")
         binding.editSearch.setText(text)
+        
+        val adapter_community_main = CommunityMainRecyclerViewAdapter(viewModel,context,this)
+        val adapter_community_liked = CommunityLikedRecyclerViewAdapter(viewModel,context,this)
+
 //        searchCommunityMainList()
 
         navController = findNavController()

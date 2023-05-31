@@ -2,12 +2,15 @@ package com.example.wardrobe
 
 import android.Manifest
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.wardrobe.adapters.HomeRecyclerViewAdapter
@@ -15,19 +18,24 @@ import com.example.wardrobe.adapters.HomeRecyclerViewAdapter2
 import com.example.wardrobe.databinding.FragmentHomeBinding
 import com.example.wardrobe.viewmodel.HomeViewModel
 import com.example.wardrobe.viewmodel.HomeItem
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.text.Typography.dagger
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 
     private val viewModel by viewModels<HomeViewModel>()
+    protected lateinit var navController: NavController
+
 
     // 회원가입 구현 시 이부분 firebase auth에서 받아올 것
-    val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
-
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid
     val db = Firebase.firestore
 
     // Set(코디) Collection Ref
@@ -44,6 +52,22 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        navController = findNavController()
+        Log.d("login_checkuid", "login ${currentUID}")
+
+//        if(user!=null){
+//            var navGraph = navController.graph
+//            navGraph.setStartDestination(R.id.homeFragment)
+//            navController.graph = navGraph
+////            navController.navigate(R.id.action_homeFragment_to_loginFragment)
+//        }
+//        else{
+//            var navGraph = navController.graph
+//            navGraph.setStartDestination(R.id.loginFragment)
+//            navController.graph = navGraph
+//        }
+
 
         val adapter_weather = HomeRecyclerViewAdapter(viewModel, context, this)
         val adapter_community = HomeRecyclerViewAdapter2(viewModel, context, this)
