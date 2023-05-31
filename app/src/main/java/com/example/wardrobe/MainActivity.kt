@@ -5,10 +5,6 @@ import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-<<<<<<< Updated upstream
-import android.view.MenuItem
-=======
->>>>>>> Stashed changes
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -20,10 +16,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.wardrobe.databinding.ActivityMainBinding
 import com.google.android.material.appbar.MaterialToolbar
-<<<<<<< Updated upstream
-import com.google.android.material.navigation.NavigationView
-=======
->>>>>>> Stashed changes
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -35,12 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
-<<<<<<< Updated upstream
-    private lateinit var auth: FirebaseAuth
-=======
     private lateinit var auth:FirebaseAuth
-
->>>>>>> Stashed changes
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,27 +64,20 @@ class MainActivity : AppCompatActivity() {
         signInAnonymously()
 
     }
-
-<<<<<<< Updated upstream
-=======
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         updateUI(currentUser)
     }
->>>>>>> Stashed changes
     private fun signInAnonymously() {
         // [START signin_anonymously]
         auth.signInAnonymously()
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-<<<<<<< Updated upstream
-                    Log.d(TAG, "signInAnonymously:success")
-=======
+
                     Log.d(TAG, "signInAnonymously:success ${auth}")
->>>>>>> Stashed changes
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
@@ -113,11 +93,8 @@ class MainActivity : AppCompatActivity() {
             }
         // [END signin_anonymously]
     }
-<<<<<<< Updated upstream
-=======
     private fun updateUI(user: FirebaseUser?) {
     }
->>>>>>> Stashed changes
 
 //    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //        menuInflater.inflate(R.menu.main_nav_menu_list,menu)
@@ -168,13 +145,4 @@ class MainActivity : AppCompatActivity() {
 //        }
 //        return false
 //    }
-    public override fun onStart() {
-        super.onStart()
-    // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
-}
-
-    private fun updateUI(user: FirebaseUser?) {
-    }
 }

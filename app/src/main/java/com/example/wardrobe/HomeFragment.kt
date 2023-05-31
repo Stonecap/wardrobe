@@ -18,10 +18,6 @@ import com.example.wardrobe.adapters.HomeRecyclerViewAdapter2
 import com.example.wardrobe.databinding.FragmentHomeBinding
 import com.example.wardrobe.viewmodel.HomeViewModel
 import com.example.wardrobe.viewmodel.HomeItem
-<<<<<<< Updated upstream
-import com.google.firebase.auth.FirebaseAuth
-=======
->>>>>>> Stashed changes
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -35,16 +31,9 @@ class HomeFragment : Fragment() {
     private val viewModel by viewModels<HomeViewModel>()
     protected lateinit var navController: NavController
 
-
-    val user = Firebase.auth.currentUser
-    // 회원가입 구현 시 이부분 firebase auth에서 받아올 것
-<<<<<<< Updated upstream
     val user = Firebase.auth.currentUser
     val currentUID = user?.uid
-=======
-    val currentUID = user?.uid
 
->>>>>>> Stashed changes
     val db = Firebase.firestore
 
     // Set(코디) Collection Ref

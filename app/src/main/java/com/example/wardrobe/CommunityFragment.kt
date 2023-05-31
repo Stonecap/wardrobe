@@ -27,14 +27,9 @@ class CommunityFragment : Fragment() {
 
 
     // 회원가입 구현 시 이부분 firebase auth에서 받아올 것
-<<<<<<< Updated upstream
-    val user = Firebase.auth.currentUser
-    val currentUID = user?.uid.toString()
-=======
     //val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
     val user = Firebase.auth.currentUser
     val currentUID = user?.uid
->>>>>>> Stashed changes
 
     val db = Firebase.firestore
     // Set(코디) Collection Ref

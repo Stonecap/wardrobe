@@ -24,16 +24,9 @@ class CodiSearchFragment : Fragment(){
     private val viewModel by viewModels<CodiViewModel> ()
     private lateinit var adapter_codi: CodiAllRecyclerViewAdapter
     protected lateinit var navController: NavController
-
-<<<<<<< Updated upstream
-    val user = Firebase.auth.currentUser
-    val currentUID = user?.uid.toString()
-=======
     //val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
     val user = Firebase.auth.currentUser
     val currentUID = user?.uid
-
->>>>>>> Stashed changes
     val db = Firebase.firestore
     val setColRef = db.collection("set")
 
