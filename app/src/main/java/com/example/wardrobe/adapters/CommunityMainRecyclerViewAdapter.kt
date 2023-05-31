@@ -15,7 +15,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wardrobe.R
 import com.example.wardrobe.viewmodel.CommunityItem
 import com.example.wardrobe.viewmodel.CommunityViewModel
+<<<<<<< Updated upstream
 import com.google.android.material.snackbar.Snackbar
+=======
+import com.google.firebase.auth.ktx.auth
+>>>>>>> Stashed changes
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -27,7 +31,9 @@ class CommunityMainRecyclerViewAdapter(private val viewModel: CommunityViewModel
     private lateinit var storage: FirebaseStorage
 
     // 회원가입 구현 시 이부분 firebase auth에서 받아올 것
-    val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
+    //val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
@@ -85,7 +91,7 @@ class CommunityMainRecyclerViewAdapter(private val viewModel: CommunityViewModel
                                 return@addOnSuccessListener
                             }
                             else {
-                                tempList.add(currentUID)
+                                tempList.add(currentUID.toString())
                                 setColRef.document(doc.id).update("likedUser",tempList)
                                 buttonLike.setBackgroundResource(R.drawable.icon_heart)
                                 return@addOnSuccessListener

@@ -18,7 +18,10 @@ import com.example.wardrobe.databinding.FragmentCommunitysearchBinding
 import com.example.wardrobe.databinding.FragmentSearchBinding
 import com.example.wardrobe.viewmodel.CodiItem
 import com.example.wardrobe.viewmodel.CommunityViewModel
+<<<<<<< Updated upstream
 import com.example.wardrobe.viewmodel.WardrobeViewModel
+=======
+>>>>>>> Stashed changes
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -28,8 +31,18 @@ class CommunitySearchFragment:Fragment(){
     private val viewModel by viewModels<CommunityViewModel> ()
     protected lateinit var navController: NavController
 
+<<<<<<< Updated upstream
     val user = Firebase.auth.currentUser
     val currentUID = user?.uid.toString()
+=======
+    val adapter_community_main = CommunityMainRecyclerViewAdapter(viewModel,context,this)
+    val adapter_community_liked = CommunityLikedRecyclerViewAdapter(viewModel,context,this)
+
+    //val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid
+
+>>>>>>> Stashed changes
     val db = Firebase.firestore
     // Set(코디) Collection Ref
     val setColRef = db.collection("set")

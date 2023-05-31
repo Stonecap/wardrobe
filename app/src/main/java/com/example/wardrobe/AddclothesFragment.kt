@@ -63,8 +63,14 @@ class AddclothesFragment : Fragment() {
     private lateinit var storage: FirebaseStorage
 
     // 회원가입 구현 시 이부분 firebase auth에서 받아올 것
+<<<<<<< Updated upstream
     val user = Firebase.auth.currentUser
     val currentUID = user?.uid.toString()
+=======
+    //val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid
+>>>>>>> Stashed changes
 
     var clothesInfo = TopBottomDTO()
     var isTop : Boolean = true
@@ -351,7 +357,7 @@ class AddclothesFragment : Fragment() {
                 file.name,
                 file.asRequestBody("image/*".toMediaType())
             )
-            .addFormDataPart("uid", currentUID)
+            .addFormDataPart("uid", currentUID.toString())
             .addFormDataPart("smooth_edges", "true")
             .build()
 

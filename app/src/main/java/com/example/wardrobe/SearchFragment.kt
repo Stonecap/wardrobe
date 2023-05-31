@@ -31,8 +31,15 @@ class SearchFragment: Fragment(){
 
 //    val inputtext = binding.editSearch.text.toString()
 
+<<<<<<< Updated upstream
     val user = Firebase.auth.currentUser
     val currentUID = user?.uid.toString()
+=======
+    //val currentUID = "3t6Dt8DleiZXrzzf696dgF15gJl2"
+    val user = Firebase.auth.currentUser
+    val currentUID = user?.uid
+
+>>>>>>> Stashed changes
     val db = Firebase.firestore
     // Top(상의) Collection Ref
     val topColRef = db.collection("top")
